@@ -18,10 +18,6 @@ const Person = props => {
   const [editMode, setEditMode] = useState(false)
   const styles = getStyles()
 
-  const fullName = () => {
-    return `${props.firstName} ${props.lastName}`
-  }
-
   const updateStateVariable = (variable, value) => {
     switch (variable) {
       case 'firstName':
@@ -55,7 +51,7 @@ const Person = props => {
           ]}
           style={styles.card}
         >
-          {fullName()}
+          {`${props.firstName} ${props.lastName}`}
         </Card>
       )}
     </List.Item>

@@ -39,3 +39,75 @@ export const REMOVE_PERSON = gql`
     }
   }
 `
+
+export const GET_PERSON = gql`
+query person($id: String!) {
+    person(id: $id) {
+      id
+      firstName
+      lastName
+    }
+  }
+`
+
+export const GET_BOATS = gql`
+  {
+    allBoats {
+        id
+        year
+        make
+        model
+        price
+        personId
+    }
+  }
+`
+
+export const GET_BOATS_BY_PERSON_ID = gql`
+  query BoatsByPerson( $personId: String! ) {
+    boatsByPerson ( personId: $personId ) {
+        id
+        year
+        make
+        model
+        price
+        personId
+    }
+  }
+`
+
+export const ADD_BOAT = gql`
+  mutation AddBoat($id: String!, $year: String!, $make: String!, $model: String!, $price: String!, $personId: String!) {
+    addBoat(id: $id, year: $year, make: $make, model:$model, price:$price, personId:$personId ) {
+     id
+     year
+     model
+     price
+     personId
+    }
+  }
+`
+
+export const UPDATE_BOAT = gql`
+  mutation UpdateBoat($id: String!, $year: String!, $make: String!, $model: String!, $price: String!, $personId: String!) {
+    updateBoat(id: $id, year: $year, make: $make, model:$model, price:$price, personId:$personId ) {
+     id
+     year
+     model
+     price
+     personId
+    }
+  }
+`
+
+export const REMOVE_BOAT = gql`
+  mutation RemoveBoat($id: String!) {
+    removeBoat(id: $id) {
+     id
+     year
+     model
+     price
+     personId
+    }
+  }
+`
